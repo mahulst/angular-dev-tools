@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+  "name": "AngularDevTools",
+  "description": "Angular helper browser plugin",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": "logo.png",
+    "default_popup": "./dist/index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://localhost:63342/*",
+        "http://localhost:3001/*",
+        "https://*.schiphol.nl/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "externally_connectable": {
+    "matches": [
+      "http://localhost:63342/*",
+      "http://localhost:3001/*",
+      "https://*.schiphol.nl/"
+    ]
+  },
+  "permissions": [
+    "activeTab",
+    "background",
+    "tabs",
+    "cookies",
+    "https://*.schiphol.nl/*"
+  ]
+}
